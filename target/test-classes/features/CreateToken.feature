@@ -16,7 +16,7 @@
 #""
 ## (Comments)
 #Sample Feature Definition Template
-@Smoke
+@Regression
 Feature: create token
  
   Scenario: create token with valid user and pass

@@ -1,4 +1,4 @@
-@Got
+@Regrassion
 Feature: get account api
 Background:
  *def result = callonce read('CreateToken.feature')
@@ -8,8 +8,6 @@ Background:
   Scenario: get account 
     Given url "https://tek-insurance-api.azurewebsites.net"
     And path "/api/accounts/get-account"
-   
-   
     
     And header Authorization = "Bearer "+ generatedToken
      And param primaryPersonId = 540
