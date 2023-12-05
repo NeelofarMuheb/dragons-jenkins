@@ -1,4 +1,4 @@
-@Got
+@Regrassion
 Feature: get account api
 Background:
  *def result = callonce read('CreateToken.feature')

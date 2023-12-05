@@ -1,5 +1,5 @@
 
-@Regration
+@Regrassion
 Feature: Token Verify
 
 Background: 
