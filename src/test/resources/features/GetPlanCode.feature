@@ -1,4 +1,4 @@
-@Smoke
+@Regrassion
 Feature: Get All Plan Code
 
  Background: setup request
