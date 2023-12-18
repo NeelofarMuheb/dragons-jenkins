@@ -1,5 +1,5 @@
 
-@Regrassion
+@Smoke
 Feature: Token Verify
 
 Background: 
