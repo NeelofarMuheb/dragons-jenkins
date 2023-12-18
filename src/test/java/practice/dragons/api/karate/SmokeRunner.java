@@ -8,7 +8,7 @@ public class SmokeRunner {
 		@Karate.Test
 		public Karate testrunner() {
 			return Karate.run("classpath:features")
-					.tags("Regrassion");
+					.tags("Smoke");
 		
 
 	

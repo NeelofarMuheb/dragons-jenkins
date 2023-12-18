@@ -1,31 +1,26 @@
-@Regrassion
-Feature: get account api
-Background:
- *def result = callonce read('CreateToken.feature')
-    And print result
-    * def generatedToken = result.response.token
- 
-  Scenario: get account 
+Regression
+Feature: Get Account API
+
+  #Scenario 9:
+  #Endpoint = /api/accounts/get-account
+  #For primaryPersonId = <One of your accounts already Created
+  #Make sure email address is correct.
+  Background: API Setup steps
     Given url "https://tek-insurance-api.azurewebsites.net"
-    And path "/api/accounts/get-account"
-    
-    And header Authorization = "Bearer "+ generatedToken
-     And param primaryPersonId = 540
-    And request 
-    """
-    {
-  "primaryPerson": {
-    "id": 540,
-    "email": "p.demo11@gmail.com",
-    "title": "Mr.",
-    "firstName": "Paul",
-    "lastName": "Dem",
-    "gender": "MALE",
-    "maritalStatus": "MARRIED",
-    "employmentStatus": "CEO",
-    "dateOfBirth": "2023-10-09"
-  }
-  """
-    When method get
-    Then status 200
-    And print response
+
+  Scenario: Get Account API Call with existing account
+  	Given path "/api/token"
+  	And request {"username": "supervisor","password": "tek_supervisor"}
+  	When method post
+  	Then status 200
+  	And print response
+  	# def step is to define new veriable in Karate Framework
+  	* def generatedToken = response.token
+  	Given path "/api/accounts/get-account"
+  	And param primaryPersonId = 2329
+  	And header Authorization = "Bearer " + generatedToken
+  	When method get
+  	Then status 200
+  	And print response
+  	And assert response.primaryPerson.id == 2329
+  	And assert response.primaryPerson.email == "nilodar.muheb@ggmail.com"
